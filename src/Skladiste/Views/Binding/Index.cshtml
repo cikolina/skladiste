@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Skladiste.Models.Test>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                IdRoba
+            </th>
+            <th>
+                Sifra
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Tezina
+            </th>
+            <th>
+                Datum isporuke
+            </th>
+            <th>
+                Id
+            </th>
+            <th>
+                Napomena
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Roba.IdRoba)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Roba.SifraProizvoda)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Roba.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Roba.Tezina)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Roba.DatumIsporuke)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Napomena.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Napomena.Napomena)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Binding", new { robaId = item.Roba.IdRoba,
+                                                                  napomenaId = item.Napomena.Id})">Edit</a>
+                    
+                    <a href="@Url.Action("Delete", "Binding", new { robaId = item.Roba.IdRoba,
+                                                                  napomenaId = item.Napomena.Id})">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
