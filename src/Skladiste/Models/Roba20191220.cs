@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Skladiste.Models
 {
@@ -12,6 +13,7 @@ namespace Skladiste.Models
 
         public int IdRoba { get; set; }
         public string SifraProizvoda { get; set; }
+        [StringLength(1, ErrorMessage = "{0} ne smije biti duzi od jednog karaktera. ")]
         public string Status { get; set; }
         public int? Tezina { get; set; }
         public DateTime? DatumIsporuke { get; set; }
